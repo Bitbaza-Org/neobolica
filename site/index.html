@@ -1,37 +1,185 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <title>NGINX on Railway</title>
-    <meta name="description" content="Choo Choo!" />
+    <title>Neobolica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="/styles.css?v=1.0" />
+    <style>
+       body {
+        margin: 0;
+        padding: 0;
+        /* Set the video as a background */
+        position: relative;
+        overflow: hidden; /* Hide overflowing video */
+        font-family: 'Tektur Condensed Bold'; /* Apply Tektur Condensed Bold or fallback to sans-serif */
+        cursor: url('assests/cursor.cur')24 24, auto;
+      }
+
+      #myVideo {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        z-index: -1; /* Send the video to the back */
+      }
+
+      #winamp-container {
+        /* Style the container for the Webamp player */
+        margin-top: 25%;
+        position: absolute;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        z-index: 1; /* Ensure the Webamp player appears above the video */
+        cursor: url('assests/cursor.cur')24 24, auto;
+      }
+
+      h1 {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        font-size: 48px;
+        z-index: 2; /* Ensure the heading appears above the video */
+        font-family: 'Tektur Condensed Bold'; /* Apply Tektur Condensed Bold or fallback to sans-serif */
+      }
+
+      /* Social icons styles */
+      .social-icons {
+        position: absolute;
+        top: 120px; /* Adjust the top position */
+        left: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2; /* Ensure the icons appear above the video */
+      }
+
+      .social-icons a {
+        margin-top: 10px; /* Adjust the spacing between icons */
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-icons img {
+        width: 32px; /* Adjust the width of the custom icon */
+        height: 32px; /* Adjust the height of the custom icon */
+        margin-bottom: 5px; /* Adjust the spacing between the icon and label */
+        border-radius: 50%; /* Optional: Make the icon round */
+      }
+
+      /* Define @font-face for the Tektur Condensed Bold font */
+      @font-face {
+        font-family: 'Tektur Condensed Bold';
+        src: url('assests/Tektur/static/Tektur_Condensed-Medium.ttf') format('truetype'); /* Replace with the correct path */
+        /* Add other font formats (woff, woff2, etc.) for better compatibility */
+      }
+    </style>
   </head>
-
   <body>
-    <main>
-      <img
-        src="https://railway.app/brand/logo-light.svg"
-        alt="Railway logo"
-        class="logo"
-      />
+    <video autoplay muted loop id="myVideo">
+      <source src="https://upcdn.io/kW15brV/raw/Aten%20the%20creator%20of%20multiverses%20creating%20universes%2C%20show%20him%20as%20strong%20and%20powerful%20in%20the%20cosmos%20(1704796161400).mp4" type="video/mp4">
+    </video>
+    
+    <h1>Neobolica</h1>
+    <!-- Social icons arranged vertically -->
+    <div class="social-icons">
+      <a href="https://twitter.com/neobolica" target="_blank">
+        <img src="assests/twitterlogo.png" alt="Twitter Icon">
+        <span>Twitter</span>
+      </a>
+      <a href="https://www.instagram.com/neobolica/" target="_blank">
+        <img src="assests/icons8-instagram-48.png" alt="Instagram Icon">
+        <span>Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/channel/UCN6c2xxDwYpYOUJt6IXvsWA" target="_blank">
+        <img src="assests/icons8-youtube-96.png" alt="YouTube Icon">
+        <span>YouTube</span>
+      </a>
+      <a href="https://uncut.network/user/4295862901" target="_blank">
+        <img src="assests/icons8-nft-share-64.png" alt="nft-icon" >
+        <span>BUY FAN NFT</span>
+      </a>
+      <a href="#" target="_blank">
+        <img src="assests/winamp-icon.png" alt="winamp-icon" >
+        <span>Winamp</span>
+      </a>
+      <a href="https://docs.google.com/document/d/119KdmIcVZsxhnVkdjnv6KOKfSjnbMXZmuIsF2w5u2Eg/edit?usp=sharing" target="_blank">
+        <img src="assests/33.ico" alt="legal-icon" >
+        <span>T&C Privacy Policy</span>
+      </a>
+    </div>
+    <script>
+      window.onload = function() {
+        alert('By continuing to use this website and listening to the music, you agree that you are 18+. The lyrical/audiovisual art is NOT intended for minors. You take full responsibility for your actions. Stay Metal 🤘');
+      };
+    </script>
+        <div id="winamp-container"></div>
+        <!-- You can use this URL, or download it and check it into your own project -->
+        <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
+        <script> 
+        const webamp = new Webamp({
+  // Optional.
+  initialTracks: [{
+    metaData: {
+      artist: "Neobolica",
+      title: "Futurismo",
+    },
+    // NOTE: Your audio file must be served from the same domain as your HTML
+    // file, or served with permissive CORS HTTP headers:
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    // Can be downloaded from: https://github.com/captbaritone/webamp/raw/master/mp3/llama-2.91.mp3
+    url: "https://upcdn.io/kW15brV/raw/Master.Neobolica%20-%20Futurismo%202.mp3"
+  },{
+    metaData: {
+      artist: "Neobolica",
+      title: "Contrarian",
+    },
+    // NOTE: Your audio file must be served from the same domain as your HTML
+    // file, or served with permissive CORS HTTP headers:
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    // Can be downloaded from: https://github.com/captbaritone/webamp/raw/master/mp3/llama-2.91.mp3
+    url: "https://upcdn.io/kW15brV/raw/CT%20-%20Saketh%20Master%208.mp3"
+  }
+],
+  // Optional. The default skin is included in the js bundle, and will be loaded by default.
+  initialSkin: {
+    // NOTE: Your skin file must be served from the same domain as your HTML
+    // file, or served with permissive CORS HTTP headers:
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    // Can be downloaded from https://github.com/captbaritone/webamp/raw/master/skins/TopazAmp1-2.wsz
+    url: "assests/Super_Mario_Land.zip"
+  },
+});
+// Render after the skin has loaded.
+// webamp.play();
 
-      <h1>NGINX on Railway</h1>
+webamp.renderWhenReady(document.getElementById('winamp-container'));
+        </script>
+         <!-- Social icons -->
+    
 
-      <p>
-        Choo Choo! This is an example of an NGINX static site running on
-        Railway.
-        <a
-          href="https://github.com/railwayapp/starters/tree/master/examples/nginx"
-          >View source</a
-        >.
-      </p>
-    </main>
-
-    <script src="/script.js"></script>
-  </body>
+    <script>
+      // Event listener for Winamp icon click
+      document.getElementById('winamp-icon').addEventListener('click', function (event) {
+        event.preventDefault();
+        // Code to toggle the visibility of the Webamp container here
+        const container = document.getElementById('winamp-container');
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+        } else {
+          container.style.display = 'none';
+        }
+      });
+    </script>
+    </body>
 </html>
