@@ -86,10 +86,11 @@
 @media (max-width: 767px) {
   .social-icons {
     position: fixed;
+    top: 99%;
     bottom: 0;
     left: 0;
     width: 100%;
-    /* background-color: #333; Optional: Add a background color */
+    background-color: #333; 
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -114,12 +115,11 @@
 
   #winamp-container {
         /* Style the container for the Webamp player */
+        display: block;
         margin-top: 100%;
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
-        z-index: 1; /* Ensure the Webamp player appears above the video */
-        cursor: url('assests/cursor.cur')24 24, auto;
       }
 
   .social-icons-names{
@@ -158,8 +158,12 @@
         <span class="social-icons-names">YouTube</span>
       </a>
       <a href="https://uncut.network/user/4295862901" target="_blank">
-        <img src="assests/icons8-nft-share-64.png" alt="nft-icon" >
-        <span class="social-icons-names">BUY FAN NFT</span>
+        <img src="assests/buy_nft.png" alt="nft-icon" >
+        <span class="social-icons-names">OpenSea</span>
+      </a>
+      <a href="https://uncut.network/user/4295862901" target="_blank">
+        <img src="assests/icons8-community-48.png" alt="nft-icon" >
+        <span class="social-icons-names">Uncut</span>
       </a>
       <a href="#" target="_blank">
         <img src="assests/winamp-icon.png" alt="winamp-icon" >
@@ -175,15 +179,6 @@
           alert('By continuing to use this website and listening to the music, you agree that you are 18+. The lyrical/audiovisual art is NOT intended for minors. You take full responsibility for your actions. Stay Metal 🤘');
       };
 
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/service-worker.js')
-              .then(function(registration) {
-                  console.log('Service Worker registered with scope:', registration.scope);
-              })
-              .catch(function(error) {
-                  console.error('Service Worker registration failed:', error);
-              });
-      }
   </script>
         <div id="winamp-container"></div>
         <!-- You can use this URL, or download it and check it into your own project -->
@@ -230,7 +225,7 @@ webamp.renderWhenReady(document.getElementById('winamp-container'));
          <!-- Social icons -->
     
 
-    <script>
+    <!-- <script>
       // Event listener for Winamp icon click
       document.getElementById('winamp-icon').addEventListener('click', function (event) {
         event.preventDefault();
@@ -242,7 +237,7 @@ webamp.renderWhenReady(document.getElementById('winamp-container'));
           container.style.display = 'none';
         }
       });
-    </script>
+    </script> -->
 
     </body>
 </html>
