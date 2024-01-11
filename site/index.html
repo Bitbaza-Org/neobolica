@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tektur&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 
 
 
@@ -80,6 +82,53 @@
         border-radius: 50%; /* Optional: Make the icon round */
       }
 
+      /* For mobile devices with a maximum width of 767px */
+@media (max-width: 767px) {
+  .social-icons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: #333; Optional: Add a background color */
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    /* padding: 10px 0; Optional: Add some padding */
+    margin: 0;
+    z-index: 3; /* Ensure the icons appear above the video */
+  }
+
+  .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .social-icons img {
+    width: 32px; /* Adjust the width of the custom icon */
+    height: 32px; /* Adjust the height of the custom icon */
+    margin-bottom: 5px; /* Adjust the spacing between the icon and label */
+    border-radius: 50%; /* Optional: Make the icon round */
+  }
+
+  #winamp-container {
+        /* Style the container for the Webamp player */
+        margin-top: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1; /* Ensure the Webamp player appears above the video */
+        cursor: url('assests/cursor.cur')24 24, auto;
+      }
+
+  .social-icons-names{
+    font-size: small;
+  }
+}
+
+
+
       /* Define @font-face for the Tektur Condensed Bold font */
       @font-face {
         font-family: 'Tektur Condensed Bold';
@@ -90,42 +139,52 @@
   </head>
   <body>
     <video autoplay muted loop id="myVideo">
-      <source src="https://upcdn.io/kW15brV/raw/Aten%20the%20creator%20of%20multiverses%20creating%20universes%2C%20show%20him%20as%20strong%20and%20powerful%20in%20the%20cosmos%20(1704796161400).mp4" type="video/mp4">
+      <source src="https://upcdn.io/kW15brV/raw/60dade40-b68f-4565-a902-f0fbdc331961%20(1).mp4" type="video/mp4">
     </video>
     
     <h1>Neobolica</h1>
     <!-- Social icons arranged vertically -->
-    <div class="social-icons">
+    <div class="social-icons" style="padding: 0px; margin: 0px;">
       <a href="https://twitter.com/neobolica" target="_blank">
         <img src="assests/twitterlogo.png" alt="Twitter Icon">
-        <span>Twitter</span>
+        <span class="social-icons-names">Twitter</span>
       </a>
       <a href="https://www.instagram.com/neobolica/" target="_blank">
         <img src="assests/icons8-instagram-48.png" alt="Instagram Icon">
-        <span>Instagram</span>
+        <span class="social-icons-names">Instagram</span>
       </a>
       <a href="https://www.youtube.com/channel/UCN6c2xxDwYpYOUJt6IXvsWA" target="_blank">
         <img src="assests/icons8-youtube-96.png" alt="YouTube Icon">
-        <span>YouTube</span>
+        <span class="social-icons-names">YouTube</span>
       </a>
       <a href="https://uncut.network/user/4295862901" target="_blank">
         <img src="assests/icons8-nft-share-64.png" alt="nft-icon" >
-        <span>BUY FAN NFT</span>
+        <span class="social-icons-names">BUY FAN NFT</span>
       </a>
       <a href="#" target="_blank">
         <img src="assests/winamp-icon.png" alt="winamp-icon" >
-        <span>Winamp</span>
+        <span class="social-icons-names">Winamp</span>
       </a>
       <a href="https://docs.google.com/document/d/119KdmIcVZsxhnVkdjnv6KOKfSjnbMXZmuIsF2w5u2Eg/edit?usp=sharing" target="_blank">
         <img src="assests/33.ico" alt="legal-icon" >
-        <span>T&C Privacy Policy</span>
+        <span class="social-icons-names">T&C Privacy Policy</span>
       </a>
     </div>
     <script>
       window.onload = function() {
-        alert('By continuing to use this website and listening to the music, you agree that you are 18+. The lyrical/audiovisual art is NOT intended for minors. You take full responsibility for your actions. Stay Metal 🤘');
+          alert('By continuing to use this website and listening to the music, you agree that you are 18+. The lyrical/audiovisual art is NOT intended for minors. You take full responsibility for your actions. Stay Metal 🤘');
       };
-    </script>
+
+      if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+              .then(function(registration) {
+                  console.log('Service Worker registered with scope:', registration.scope);
+              })
+              .catch(function(error) {
+                  console.error('Service Worker registration failed:', error);
+              });
+      }
+  </script>
         <div id="winamp-container"></div>
         <!-- You can use this URL, or download it and check it into your own project -->
         <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
@@ -184,5 +243,6 @@ webamp.renderWhenReady(document.getElementById('winamp-container'));
         }
       });
     </script>
+
     </body>
 </html>
